@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +16,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class MangaRankingAdapter extends RecyclerView.Adapter<MangaRankingAdapter.MangaRankingViewHolder> {
 
@@ -33,13 +33,19 @@ public class MangaRankingAdapter extends RecyclerView.Adapter<MangaRankingAdapte
     @Override
     public void onBindViewHolder(@NonNull MangaRankingAdapter.MangaRankingViewHolder holder, int position) {
         TextView titleView = holder.title;
-        RatingBar ratingBar = holder.rating;
+        TextView numChaptersView = holder.numChapters;
+        TextView ratingBar = holder.rating;
         TextView descriptionView = holder.description;
         ImageView imageView = holder.image;
 
         Manga manga = mangaList.get(position).getNode();
         titleView.setText(manga.getTitle());
-        ratingBar.setRating(manga.getMean());
+        if (!manga.getNumChapters().equals("0")) {
+            numChaptersView.setText(manga.getNumChapters() + " chps");
+        } else {
+            numChaptersView.setText("? chps");
+        }
+        ratingBar.setText(String.format("%.1f", manga.getMean()));
         descriptionView.setText(manga.getSynopsis());
         Picasso.get().load(manga.getMainPicture().getMedium()).into(imageView);
         imageView.setContentDescription(manga.getTitle());
@@ -53,13 +59,15 @@ public class MangaRankingAdapter extends RecyclerView.Adapter<MangaRankingAdapte
     public static class MangaRankingViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
-        private RatingBar rating;
+        private TextView numChapters;
+        private TextView rating;
         private TextView description;
         private ImageView image;
 
         public MangaRankingViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.manga_card_title);
+            this.numChapters = itemView.findViewById(R.id.manga_card_chapters);
             this.rating = itemView.findViewById(R.id.manga_card_rating);
             this.description = itemView.findViewById(R.id.manga_card_description);
             this.image = itemView.findViewById(R.id.manga_card_image);

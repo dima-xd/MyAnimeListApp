@@ -33,13 +33,19 @@ public class AnimeRankingAdapter extends RecyclerView.Adapter<AnimeRankingAdapte
     @Override
     public void onBindViewHolder(@NonNull AnimeRankingViewHolder holder, int position) {
         TextView titleView = holder.title;
-        RatingBar ratingBar = holder.rating;
+        TextView numEpisodesView = holder.numEpisodes;
+        TextView ratingBar = holder.rating;
         TextView descriptionView = holder.description;
         ImageView imageView = holder.image;
 
         Anime anime = animeList.get(position).getNode();
         titleView.setText(anime.getTitle());
-        ratingBar.setRating(anime.getMean());
+        if (!anime.getNumEpisodes().equals("0")) {
+            numEpisodesView.setText(anime.getNumEpisodes() + " eps");
+        } else {
+            numEpisodesView.setText("? eps");
+        }
+        ratingBar.setText(String.format("%.1f", anime.getMean()));
         descriptionView.setText(anime.getSynopsis());
         Picasso.get().load(anime.getMainPicture().getMedium()).into(imageView);
         imageView.setContentDescription(anime.getTitle());
@@ -53,13 +59,15 @@ public class AnimeRankingAdapter extends RecyclerView.Adapter<AnimeRankingAdapte
     public static class AnimeRankingViewHolder extends RecyclerView.ViewHolder {
 
         private TextView title;
-        private RatingBar rating;
+        private TextView numEpisodes;
+        private TextView rating;
         private TextView description;
         private ImageView image;
 
         public AnimeRankingViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.anime_card_title);
+            this.numEpisodes = itemView.findViewById(R.id.anime_card_episodes);
             this.rating = itemView.findViewById(R.id.anime_card_rating);
             this.description = itemView.findViewById(R.id.anime_card_description);
             this.image = itemView.findViewById(R.id.anime_card_image);

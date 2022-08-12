@@ -63,7 +63,7 @@ public class Anime {
     private MyListStatus myListStatus;
 
     @SerializedName("num_episodes")
-    private Integer numEpisodes;
+    private String numEpisodes;
 
     @SerializedName("start_season")
     private StartSeason startSeason;
@@ -253,11 +253,11 @@ public class Anime {
         this.myListStatus = myListStatus;
     }
 
-    public Integer getNumEpisodes() {
+    public String getNumEpisodes() {
         return numEpisodes;
     }
 
-    public void setNumEpisodes(Integer numEpisodes) {
+    public void setNumEpisodes(String numEpisodes) {
         this.numEpisodes = numEpisodes;
     }
 

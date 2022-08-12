@@ -27,7 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="3"
@@ -38,19 +38,30 @@
                 app:autoSizeStepGranularity="2sp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toStartOf="@+id/anime_card_image"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <android.widget.RatingBar
+            <TextView
+                android:id="@+id/anime_card_episodes"
+                android:layout_width="61dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toStartOf="@+id/anime_card_rating"
+                app:layout_constraintHorizontal_bias="0.231"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anime_card_title" />
+
+            <TextView
                 android:id="@+id/anime_card_rating"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="62dp"
-                android:isIndicator="true"
-                android:numStars="10"
+                android:layout_width="34dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:drawableRightCompat="@drawable/ic_baseline_star_24"
                 app:layout_constraintEnd_toStartOf="@+id/anime_card_image"
+                app:layout_constraintHorizontal_bias="0.625"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/anime_card_title" />
 
@@ -59,6 +70,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="4"
@@ -68,19 +80,19 @@
                 app:autoSizeStepGranularity="2sp"
                 app:autoSizeTextType="uniform"
                 app:layout_constraintEnd_toStartOf="@+id/anime_card_image"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/anime_card_rating" />
+                app:layout_constraintTop_toBottomOf="@+id/anime_card_episodes" />
 
             <ImageView
                 android:id="@+id/anime_card_image"
-                android:layout_width="0dp"
-                android:layout_height="130dp"
+                android:layout_width="126dp"
+                android:layout_height="121dp"
                 android:layout_margin="16dp"
                 android:layout_marginEnd="16dp"
                 android:contentDescription=""
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/anime_card_rating"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:color/darker_gray" />
 
