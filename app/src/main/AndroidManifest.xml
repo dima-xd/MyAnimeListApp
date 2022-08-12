@@ -31,10 +31,6 @@
             android:name=".ui.anime.AnimeInfo"
             android:exported="true">
         </activity>
-
-        <meta-data
-            android:name="mal_token"
-            android:value="${MAL_TOKEN}" />
     </application>
 
 </manifest>

@@ -2,10 +2,6 @@ package com.myanimelist.app.api_ifaces;
 
 import com.myanimelist.app.beans.Anime;
 import com.myanimelist.app.beans.AnimeRanking;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import io.reactivex.rxjava3.core.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

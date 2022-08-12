@@ -3,7 +3,6 @@ package com.myanimelist.app.ui.anime;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
-import com.myanimelist.app.MainActivity;
 import com.myanimelist.app.R;
 import com.myanimelist.app.adapters.AnimeRankingAdapter;
 import com.myanimelist.app.beans.AnimeRanking;
@@ -24,7 +22,6 @@ import com.myanimelist.app.beans.Data;
 import com.myanimelist.app.databinding.FragmentAnimeBinding;
 import com.myanimelist.app.listeners.RecyclerItemClickListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class AnimeFragment extends Fragment {

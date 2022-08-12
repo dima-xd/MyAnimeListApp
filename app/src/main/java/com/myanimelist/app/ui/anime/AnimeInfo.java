@@ -11,8 +11,6 @@ import com.myanimelist.app.beans.Anime;
 import com.myanimelist.app.beans.Data;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 public class AnimeInfo extends Activity {
 
     @Override

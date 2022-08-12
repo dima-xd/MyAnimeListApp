@@ -1,0 +1,35 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+env:
+  MAL_TOKEN: ${{ secrets.MAL_API }}
+
+jobs:
+  build_apk:
+    name: Build release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Create local.properties
+        run: touch local.properties
+      - name: Add MAL API key to local.properties
+        run: echo -e "\nMAL_TOKEN=$MAL_TOKEN" >> local.properties
+      - name: Grant permission for gradle
+        run: chmod +x gradlew
+      - name: Build APK
+        run: ./gradlew build
+      - name: Upload APK
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: app.apk
+          path: app/build/outputs/apk/debug/app-debug.apk

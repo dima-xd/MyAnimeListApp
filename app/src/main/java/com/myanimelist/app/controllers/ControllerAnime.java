@@ -12,8 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static com.myanimelist.app.constants.Constants.API.*;
 
-import java.util.List;
-
 public class ControllerAnime {
 
     private MalApi api;
