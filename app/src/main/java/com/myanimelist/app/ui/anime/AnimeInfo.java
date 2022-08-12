@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.myanimelist.app.R;
 import com.myanimelist.app.beans.Anime;
-import com.myanimelist.app.beans.Data;
+import com.myanimelist.app.beans.DataAnime;
 import com.squareup.picasso.Picasso;
 
 public class AnimeInfo extends Activity {
@@ -20,13 +20,13 @@ public class AnimeInfo extends Activity {
 
         Gson gson = new Gson();
         String json = getIntent().getStringExtra("anime");
-        Data data = gson.fromJson(json, Data.class);
+        DataAnime dataAnime = gson.fromJson(json, DataAnime.class);
 
-        initAnime(data);
+        initAnime(dataAnime);
     }
 
-    private void initAnime(Data data) {
-        Anime anime = data.getNode();
+    private void initAnime(DataAnime dataAnime) {
+        Anime anime = dataAnime.getNode();
         ImageView image = findViewById(R.id.anime_image);
         TextView title = findViewById(R.id.anime_title);
         TextView titleJp = findViewById(R.id.anime_title_jp);

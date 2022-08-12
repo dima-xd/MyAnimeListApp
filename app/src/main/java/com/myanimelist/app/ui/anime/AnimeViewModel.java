@@ -1,12 +1,9 @@
 package com.myanimelist.app.ui.anime;
 
 import android.app.Application;
-import android.content.pm.PackageManager;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
-
-import static com.myanimelist.app.constants.Constants.*;
 
 import com.myanimelist.app.BuildConfig;
 import com.myanimelist.app.beans.AnimeRanking;

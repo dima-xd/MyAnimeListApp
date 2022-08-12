@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.myanimelist.app.R;
 import com.myanimelist.app.beans.Anime;
-import com.myanimelist.app.beans.Data;
+import com.myanimelist.app.beans.DataAnime;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import java.util.List;
 
 public class AnimeRankingAdapter extends RecyclerView.Adapter<AnimeRankingAdapter.AnimeRankingViewHolder> {
 
-    private ArrayList<Data> animeList;
+    private ArrayList<DataAnime> animeList;
 
     @NonNull
     @Override
@@ -66,16 +66,12 @@ public class AnimeRankingAdapter extends RecyclerView.Adapter<AnimeRankingAdapte
         }
     }
 
-    public AnimeRankingAdapter(List<Data> animeList) {
+    public AnimeRankingAdapter(List<DataAnime> animeList) {
         this.animeList = new ArrayList<>(animeList);
     }
 
-    public ArrayList<Data> getAnimeList() {
+    public ArrayList<DataAnime> getAnimeList() {
         return animeList;
-    }
-
-    public void setAnimeList(ArrayList<Data> animeList) {
-        this.animeList = animeList;
     }
 
 }

@@ -4,19 +4,19 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class AnimeRanking {
+public class MangaRanking {
 
     @SerializedName("data")
-    private List<DataAnime> data = null;
+    private List<DataManga> data = null;
 
     @SerializedName("paging")
     private Paging paging;
 
-    public List<DataAnime> getData() {
+    public List<DataManga> getData() {
         return data;
     }
 
-    public void setData(List<DataAnime> data) {
+    public void setData(List<DataManga> data) {
         this.data = data;
     }
 
@@ -27,5 +27,4 @@ public class AnimeRanking {
     public void setPaging(Paging paging) {
         this.paging = paging;
     }
-
 }

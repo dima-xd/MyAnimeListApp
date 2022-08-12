@@ -31,6 +31,10 @@
             android:name=".ui.anime.AnimeInfo"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".ui.manga.MangaInfo"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

@@ -1,12 +1,13 @@
 package com.myanimelist.app.beans;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
-public class Anime {
+import java.util.List;
+
+public class Manga {
 
     @SerializedName("id")
-    private String id;
+    private Integer id;
 
     @SerializedName("title")
     private String title;
@@ -20,14 +21,11 @@ public class Anime {
     @SerializedName("start_date")
     private String startDate;
 
-    @SerializedName("end_date")
-    private String endDate;
-
     @SerializedName("synopsis")
     private String synopsis;
 
     @SerializedName("mean")
-    private float mean;
+    private Float mean;
 
     @SerializedName("rank")
     private Integer rank;
@@ -62,23 +60,14 @@ public class Anime {
     @SerializedName("my_list_status")
     private MyListStatus myListStatus;
 
-    @SerializedName("num_episodes")
-    private Integer numEpisodes;
+    @SerializedName("num_volumes")
+    private Integer numVolumes;
 
-    @SerializedName("start_season")
-    private StartSeason startSeason;
+    @SerializedName("num_chapters")
+    private Integer numChapters;
 
-    @SerializedName("broadcast")
-    private Broadcast broadcast;
-
-    @SerializedName("source")
-    private String source;
-
-    @SerializedName("average_episode_duration")
-    private Integer averageEpisodeDuration;
-
-    @SerializedName("rating")
-    private String rating;
+    @SerializedName("authors")
+    private List<Author> authors = null;
 
     @SerializedName("pictures")
     private List<Picture> pictures = null;
@@ -87,25 +76,22 @@ public class Anime {
     private String background;
 
     @SerializedName("related_anime")
-    private List<RelatedAnime> relatedAnime = null;
+    private List<Object> relatedAnime = null;
 
     @SerializedName("related_manga")
-    private List<Object> relatedManga = null;
+    private List<RelatedManga> relatedManga = null;
 
     @SerializedName("recommendations")
     private List<Recommendation> recommendations = null;
 
-    @SerializedName("studios")
-    private List<Studio> studios = null;
+    @SerializedName("serialization")
+    private List<Serialization> serialization = null;
 
-    @SerializedName("statistics")
-    private Statistics statistics;
-
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -141,14 +127,6 @@ public class Anime {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
     public String getSynopsis() {
         return synopsis;
     }
@@ -157,11 +135,11 @@ public class Anime {
         this.synopsis = synopsis;
     }
 
-    public float getMean() {
+    public Float getMean() {
         return mean;
     }
 
-    public void setMean(float mean) {
+    public void setMean(Float mean) {
         this.mean = mean;
     }
 
@@ -253,52 +231,28 @@ public class Anime {
         this.myListStatus = myListStatus;
     }
 
-    public Integer getNumEpisodes() {
-        return numEpisodes;
+    public Integer getNumVolumes() {
+        return numVolumes;
     }
 
-    public void setNumEpisodes(Integer numEpisodes) {
-        this.numEpisodes = numEpisodes;
+    public void setNumVolumes(Integer numVolumes) {
+        this.numVolumes = numVolumes;
     }
 
-    public StartSeason getStartSeason() {
-        return startSeason;
+    public Integer getNumChapters() {
+        return numChapters;
     }
 
-    public void setStartSeason(StartSeason startSeason) {
-        this.startSeason = startSeason;
+    public void setNumChapters(Integer numChapters) {
+        this.numChapters = numChapters;
     }
 
-    public Broadcast getBroadcast() {
-        return broadcast;
+    public List<Author> getAuthors() {
+        return authors;
     }
 
-    public void setBroadcast(Broadcast broadcast) {
-        this.broadcast = broadcast;
-    }
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public Integer getAverageEpisodeDuration() {
-        return averageEpisodeDuration;
-    }
-
-    public void setAverageEpisodeDuration(Integer averageEpisodeDuration) {
-        this.averageEpisodeDuration = averageEpisodeDuration;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
     }
 
     public List<Picture> getPictures() {
@@ -317,19 +271,19 @@ public class Anime {
         this.background = background;
     }
 
-    public List<RelatedAnime> getRelatedAnime() {
+    public List<Object> getRelatedAnime() {
         return relatedAnime;
     }
 
-    public void setRelatedAnime(List<RelatedAnime> relatedAnime) {
+    public void setRelatedAnime(List<Object> relatedAnime) {
         this.relatedAnime = relatedAnime;
     }
 
-    public List<Object> getRelatedManga() {
+    public List<RelatedManga> getRelatedManga() {
         return relatedManga;
     }
 
-    public void setRelatedManga(List<Object> relatedManga) {
+    public void setRelatedManga(List<RelatedManga> relatedManga) {
         this.relatedManga = relatedManga;
     }
 
@@ -341,20 +295,12 @@ public class Anime {
         this.recommendations = recommendations;
     }
 
-    public List<Studio> getStudios() {
-        return studios;
+    public List<Serialization> getSerialization() {
+        return serialization;
     }
 
-    public void setStudios(List<Studio> studios) {
-        this.studios = studios;
-    }
-
-    public Statistics getStatistics() {
-        return statistics;
-    }
-
-    public void setStatistics(Statistics statistics) {
-        this.statistics = statistics;
+    public void setSerialization(List<Serialization> serialization) {
+        this.serialization = serialization;
     }
 
 }

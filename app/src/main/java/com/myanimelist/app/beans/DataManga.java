@@ -2,19 +2,19 @@ package com.myanimelist.app.beans;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Data {
+public class DataManga {
 
     @SerializedName("node")
-    private Anime node;
+    private Manga node;
 
     @SerializedName("ranking")
     private Ranking ranking;
 
-    public Anime getNode() {
+    public Manga getNode() {
         return node;
     }
 
-    public void setNode(Anime node) {
+    public void setNode(Manga node) {
         this.node = node;
     }
 
@@ -24,13 +24,5 @@ public class Data {
 
     public void setRanking(Ranking ranking) {
         this.ranking = ranking;
-    }
-
-    @Override
-    public String toString() {
-        return "Data{" +
-                "node=" + node +
-                ", ranking=" + ranking +
-                '}';
     }
 }

@@ -1,7 +1,10 @@
 package com.myanimelist.app.controllers;
 
+import static com.myanimelist.app.constants.Constants.API.FIELDS_MANGA;
+import static com.myanimelist.app.constants.Constants.API.MAL_BASE_URL;
+
 import com.myanimelist.app.api_ifaces.MalApi;
-import com.myanimelist.app.beans.AnimeRanking;
+import com.myanimelist.app.beans.MangaRanking;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -9,13 +12,11 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.myanimelist.app.constants.Constants.API.*;
-
-public class ControllerAnime {
+public class ControllerManga {
 
     private MalApi api;
 
-    public ControllerAnime(String token) {
+    public ControllerManga(String token) {
         OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
         httpClient.addInterceptor(chain -> {
             Request request = chain.request().newBuilder().addHeader("X-MAL-CLIENT-ID", token).build();
@@ -32,8 +33,7 @@ public class ControllerAnime {
         api = retrofit.create(MalApi.class);
     }
 
-    public AnimeRanking getAnimeRanking(String rankingType, String limit, String offset) {
-        return api.getAnimeRanking(rankingType, limit, offset, FIELDS_ANIME).blockingSingle();
+    public MangaRanking getMangaRanking(String rankingType, String limit, String offset) {
+        return api.getMangaRanking(rankingType, limit, offset, FIELDS_MANGA).blockingSingle();
     }
-
 }

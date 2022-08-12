@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 import com.myanimelist.app.R;
 import com.myanimelist.app.adapters.AnimeRankingAdapter;
 import com.myanimelist.app.beans.AnimeRanking;
-import com.myanimelist.app.beans.Data;
+import com.myanimelist.app.beans.DataAnime;
 import com.myanimelist.app.databinding.FragmentAnimeBinding;
 import com.myanimelist.app.listeners.RecyclerItemClickListener;
 
@@ -60,7 +60,7 @@ public class AnimeFragment extends Fragment {
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     if (!recyclerView.canScrollVertically(1)) {
-                        ArrayList<Data> list = adapter.getAnimeList();
+                        ArrayList<DataAnime> list = adapter.getAnimeList();
                         AnimeRanking newAnimeRanking = animeViewModel.getAnimeRanking(LIMIT_ITEMS,
                                 Integer.toString(list.size()));
                         adapter.getAnimeList().addAll(newAnimeRanking.getData());
