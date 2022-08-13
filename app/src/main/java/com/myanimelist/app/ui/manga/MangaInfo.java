@@ -45,6 +45,8 @@ public class MangaInfo extends AppCompatActivity {
         TextView titleJp = findViewById(R.id.manga_title_jp);
         TextView type = findViewById(R.id.manga_type);
         TextView year = findViewById(R.id.manga_year);
+        TextView volumes = findViewById(R.id.manga_volumes);
+        TextView chapters = findViewById(R.id.manga_chapters);
         TextView description = findViewById(R.id.manga_description);
 
         Picasso.get().load(manga.getMainPicture().getLarge()).into(image);
@@ -53,6 +55,8 @@ public class MangaInfo extends AppCompatActivity {
         titleJp.setText(manga.getAlternativeTitles().getJa());
         type.setText(manga.getMediaType().toUpperCase() + ",");
         year.setText(DateUtils.initDate(manga.getStartDate()));
+        volumes.setText(manga.getNumVolumes() + " vols, ");
+        chapters.setText(manga.getNumChapters() + " chaps");
         description.setText(manga.getSynopsis());
     }
 }

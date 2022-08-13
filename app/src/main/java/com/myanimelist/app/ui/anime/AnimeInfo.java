@@ -45,6 +45,8 @@ public class AnimeInfo extends AppCompatActivity {
         TextView titleJp = findViewById(R.id.anime_title_jp);
         TextView type = findViewById(R.id.anime_type);
         TextView year = findViewById(R.id.anime_year);
+        TextView episodes = findViewById(R.id.anime_episodes);
+        TextView duration = findViewById(R.id.anime_duration);
         TextView description = findViewById(R.id.anime_description);
 
         Picasso.get().load(anime.getMainPicture().getLarge()).into(image);
@@ -53,6 +55,8 @@ public class AnimeInfo extends AppCompatActivity {
         titleJp.setText(anime.getAlternativeTitles().getJa());
         type.setText(anime.getMediaType().toUpperCase() + ",");
         year.setText(DateUtils.initDate(anime.getStartDate()) + " - " + DateUtils.initDate(anime.getEndDate()));
+        episodes.setText(anime.getNumEpisodes() + " eps, ");
+        duration.setText("~" + anime.getAverageEpisodeDuration() / 60 + " min.");
         description.setText(anime.getSynopsis());
     }
 

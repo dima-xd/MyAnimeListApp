@@ -61,7 +61,7 @@ public class Manga {
     private MyListStatus myListStatus;
 
     @SerializedName("num_volumes")
-    private Integer numVolumes;
+    private String numVolumes;
 
     @SerializedName("num_chapters")
     private String numChapters;
@@ -231,11 +231,11 @@ public class Manga {
         this.myListStatus = myListStatus;
     }
 
-    public Integer getNumVolumes() {
+    public String getNumVolumes() {
         return numVolumes;
     }
 
-    public void setNumVolumes(Integer numVolumes) {
+    public void setNumVolumes(String numVolumes) {
         this.numVolumes = numVolumes;
     }
 

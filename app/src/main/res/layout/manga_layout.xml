@@ -36,33 +36,6 @@
             app:layout_constraintTop_toBottomOf="@+id/manga_image" />
 
         <TextView
-            android:id="@+id/manga_type"
-            android:layout_width="102dp"
-            android:layout_height="29dp"
-            android:layout_marginTop="20dp"
-            android:text="Type"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            app:drawableLeftCompat="@drawable/ic_baseline_library_books_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.13"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/manga_title_jp" />
-
-        <TextView
-            android:id="@+id/manga_year"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Year"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.198"
-            app:layout_constraintStart_toEndOf="@+id/manga_type"
-            app:layout_constraintTop_toBottomOf="@+id/manga_title_jp" />
-
-        <TextView
             android:id="@+id/manga_title_jp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +46,87 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/manga_title" />
 
+        <GridLayout
+            android:id="@+id/manga_grid_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:columnCount="3"
+            android:rowCount="2"
+            app:layout_constraintTop_toBottomOf="@+id/manga_title_jp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="125dp">
+
+
+            <ImageView
+                android:layout_row="0"
+                android:layout_column="0"
+                android:src="@drawable/ic_baseline_library_books_24" />
+
+            <ImageView
+                android:layout_row="1"
+                android:layout_column="0"
+                android:src="@drawable/ic_baseline_book_online_24" />
+
+            <TextView
+                android:id="@+id/manga_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_marginStart="10dp"
+                android:text="Type"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anime_title_jp" />
+
+            <TextView
+                android:id="@+id/manga_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="2"
+                android:layout_marginStart="10dp"
+                android:text="Year"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.101"
+                app:layout_constraintStart_toEndOf="@+id/manga_type"
+                app:layout_constraintTop_toBottomOf="@+id/manga_title_jp" />
+
+            <TextView
+                android:id="@+id/manga_volumes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_marginStart="10dp"
+                android:text="Volumes"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anime_type" />
+
+            <TextView
+                android:id="@+id/manga_chapters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="2"
+                android:layout_marginStart="10dp"
+                android:text="Chapters"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.141"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anime_year" />
+        </GridLayout>
+
         <TextView
             android:id="@+id/manga_description"
             android:layout_width="wrap_content"
@@ -82,7 +136,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/manga_year" />
+            app:layout_constraintTop_toBottomOf="@+id/manga_grid_info" />
 
         <!--<androidx.viewpager.widget.ViewPager
             android:id="@+id/image_slider"
