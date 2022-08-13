@@ -7,7 +7,7 @@ import java.util.List;
 public class Manga {
 
     @SerializedName("id")
-    private Integer id;
+    private String id;
 
     @SerializedName("title")
     private String title;
@@ -87,11 +87,11 @@ public class Manga {
     @SerializedName("serialization")
     private List<Serialization> serialization = null;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

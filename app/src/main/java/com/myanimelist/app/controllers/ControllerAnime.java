@@ -1,6 +1,7 @@
 package com.myanimelist.app.controllers;
 
 import com.myanimelist.app.api_ifaces.MalApi;
+import com.myanimelist.app.beans.Anime;
 import com.myanimelist.app.beans.AnimeRanking;
 
 import okhttp3.OkHttpClient;
@@ -30,6 +31,10 @@ public class ControllerAnime {
                 .build();
 
         api = retrofit.create(MalApi.class);
+    }
+
+    public Anime getAnimeByID(String id) {
+        return api.getAnimeById(id, FIELDS_ANIME).blockingSingle();
     }
 
     public AnimeRanking getAnimeRanking(String rankingType, String limit, String offset) {

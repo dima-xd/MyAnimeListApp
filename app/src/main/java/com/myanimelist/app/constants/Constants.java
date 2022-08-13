@@ -2,6 +2,8 @@ package com.myanimelist.app.constants;
 
 public class Constants {
     public static final String MAL_TOKEN_META_DATA = "mal_token";
+    public static final String ANIME_ID = "animeID";
+    public static final String MANGA_ID = "mangaID";
 
     public static class API {
 

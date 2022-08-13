@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
 import com.myanimelist.app.R;
 import com.myanimelist.app.adapters.MangaRankingAdapter;
 import com.myanimelist.app.beans.DataManga;
@@ -23,6 +22,8 @@ import com.myanimelist.app.databinding.FragmentMangaBinding;
 import com.myanimelist.app.listeners.RecyclerItemClickListener;
 
 import java.util.ArrayList;
+
+import static com.myanimelist.app.constants.Constants.*;
 
 public class MangaFragment extends Fragment {
 
@@ -89,8 +90,7 @@ public class MangaFragment extends Fragment {
                     @Override
                     public void onItemClick(View view, int position) {
                         Intent intent = new Intent(getActivity(), MangaInfo.class);
-                        Gson gson = new Gson();
-                        intent.putExtra("manga", gson.toJson(adapter.getMangaList().get(position)));
+                        intent.putExtra(MANGA_ID, adapter.getMangaList().get(position).getNode().getId());
                         startActivity(intent);
                     }
 

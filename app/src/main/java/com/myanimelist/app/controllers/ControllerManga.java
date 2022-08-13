@@ -4,6 +4,7 @@ import static com.myanimelist.app.constants.Constants.API.FIELDS_MANGA;
 import static com.myanimelist.app.constants.Constants.API.MAL_BASE_URL;
 
 import com.myanimelist.app.api_ifaces.MalApi;
+import com.myanimelist.app.beans.Manga;
 import com.myanimelist.app.beans.MangaRanking;
 
 import okhttp3.OkHttpClient;
@@ -31,6 +32,10 @@ public class ControllerManga {
                 .build();
 
         api = retrofit.create(MalApi.class);
+    }
+
+    public Manga getMangaByID(String id) {
+        return api.getMangaById(id, FIELDS_MANGA).blockingSingle();
     }
 
     public MangaRanking getMangaRanking(String rankingType, String limit, String offset) {
