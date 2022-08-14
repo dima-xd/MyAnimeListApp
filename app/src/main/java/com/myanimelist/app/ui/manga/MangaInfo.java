@@ -1,10 +1,12 @@
 package com.myanimelist.app.ui.manga;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,6 +16,7 @@ import com.myanimelist.app.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
+import java.util.stream.Collectors;
 
 import static com.myanimelist.app.constants.Constants.*;
 
@@ -21,6 +24,7 @@ public class MangaInfo extends AppCompatActivity {
 
     private MangaViewModel mangaViewModel;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -37,6 +41,7 @@ public class MangaInfo extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
     private void initManga(String id) throws ParseException {
         Manga manga = mangaViewModel.getMangaByID(id);
@@ -47,6 +52,7 @@ public class MangaInfo extends AppCompatActivity {
         TextView year = findViewById(R.id.manga_year);
         TextView volumes = findViewById(R.id.manga_volumes);
         TextView chapters = findViewById(R.id.manga_chapters);
+        TextView genres = findViewById(R.id.manga_genres);
         TextView description = findViewById(R.id.manga_description);
 
         Picasso.get().load(manga.getMainPicture().getLarge()).into(image);
@@ -57,6 +63,7 @@ public class MangaInfo extends AppCompatActivity {
         year.setText(DateUtils.initDate(manga.getStartDate()));
         volumes.setText(manga.getNumVolumes() + " vols, ");
         chapters.setText(manga.getNumChapters() + " chaps");
+        genres.setText(manga.getGenres().stream().map(Object::toString).collect(Collectors.joining(", ")));
         description.setText(manga.getSynopsis());
     }
 }

@@ -128,6 +128,16 @@
         </GridLayout>
 
         <TextView
+            android:id="@+id/anime_genres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Genres"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anime_grid_info" />
+
+        <TextView
             android:id="@+id/anime_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -135,7 +145,7 @@
             android:text="Description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/anime_grid_info" />
+            app:layout_constraintTop_toBottomOf="@+id/anime_genres" />
 
         <!--<androidx.viewpager.widget.ViewPager
             android:id="@+id/image_slider"

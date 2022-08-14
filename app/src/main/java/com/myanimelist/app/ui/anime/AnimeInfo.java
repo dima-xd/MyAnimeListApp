@@ -1,10 +1,12 @@
 package com.myanimelist.app.ui.anime;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -14,6 +16,7 @@ import com.myanimelist.app.utils.DateUtils;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
+import java.util.stream.Collectors;
 
 import static com.myanimelist.app.constants.Constants.*;
 
@@ -21,6 +24,7 @@ public class AnimeInfo extends AppCompatActivity {
 
     private AnimeViewModel animeViewModel;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         try {
@@ -37,6 +41,7 @@ public class AnimeInfo extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
     private void initAnime(String id) throws ParseException {
         Anime anime = animeViewModel.getAnimeByID(id);
@@ -47,6 +52,7 @@ public class AnimeInfo extends AppCompatActivity {
         TextView year = findViewById(R.id.anime_year);
         TextView episodes = findViewById(R.id.anime_episodes);
         TextView duration = findViewById(R.id.anime_duration);
+        TextView genres = findViewById(R.id.anime_genres);
         TextView description = findViewById(R.id.anime_description);
 
         Picasso.get().load(anime.getMainPicture().getLarge()).into(image);
@@ -57,6 +63,7 @@ public class AnimeInfo extends AppCompatActivity {
         year.setText(DateUtils.initDate(anime.getStartDate()) + " - " + DateUtils.initDate(anime.getEndDate()));
         episodes.setText(anime.getNumEpisodes() + " eps, ");
         duration.setText("~" + anime.getAverageEpisodeDuration() / 60 + " min.");
+        genres.setText(anime.getGenres().stream().map(Object::toString).collect(Collectors.joining(", ")));
         description.setText(anime.getSynopsis());
     }
 
